@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>SpaSource — Med Spa Supply Sourcing Hub | IV Vitamins, Injectables & Pricing</title>
+  <meta name="description" content="The med spa sourcing hub: compare IV vitamin, injectable & consumable suppliers, community-reported pricing benchmarks, a vetted supplier directory, and a med spa networking directory. Stop overpaying for supplies." />
+  <meta name="keywords" content="med spa supplies, where to source IV vitamins, med spa supplier directory, IV bag cost, vitamin C vial price, 503A 503B compounding pharmacy, Olympia Staska pricing, med spa sourcing" />
+  <link rel="canonical" href="https://spasource.example/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SpaSource — The Med Spa Supply Sourcing Hub" />
+  <meta property="og:description" content="Compare suppliers, see community-reported pricing, find vetted IV & injectable sources, and network with med spas. Built for med spa owners." />
+  <meta property="og:url" content="https://spasource.example/" />
+  <meta property="og:image" content="https://spasource.example/assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SpaSource — The Med Spa Supply Sourcing Hub" />
+  <meta name="twitter:description" content="Where med spa owners source supplies — pricing, suppliers, and networking in one place." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Structured data: Organization + WebSite w/ sitelinks search box -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "SpaSource",
+        "url": "https://spasource.example/",
+        "description": "The med spa supply sourcing hub.",
+        "logo": "https://spasource.example/assets/logo.png"
+      },
+      {
+        "@type": "WebSite",
+        "name": "SpaSource",
+        "url": "https://spasource.example/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": { "@type": "EntryPoint", "urlTemplate": "https://spasource.example/?q={search_term_string}" },
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- FAQ schema is injected from data.js at load for rank-ready rich results -->
+  <script src="data/data.js"></script>
+  <script>
+    (function () {
+      if (!window.DATA || !window.DATA.faq) return;
+      var s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": window.DATA.faq.map(function (f) {
+          return { "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } };
+        })
+      });
+      document.head.appendChild(s);
+    })();
+  </script>
+</head>
+<body>
+  <div class="mesh"></div><div class="mesh-3"></div><div class="grain"></div>
+
+  <!-- Ticker -->
+  <div class="ticker"><div class="ticker-track" id="ticker-track"></div></div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="#" class="logo"><span class="logo-mark">S</span>Spa<span>Source</span></a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#guide">Sourcing Guide</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#suppliers">Suppliers</a>
+        <a href="#directory">Directory</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <button class="search-btn" id="search-btn" aria-label="Search">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="5.5"/><path d="M11 11l3 3"/></svg>
+        Search <kbd>⌘K</kbd>
+      </button>
+      <a href="#get-local-gold" class="btn-gold">Get More Clients</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow reveal"><span class="pulse"></span> The med spa sourcing hub · updated weekly</span>
+      <h1 class="reveal">Stop overpaying for<br /><span class="grad">med spa supplies.</span></h1>
+      <p class="reveal">Where med spa owners source IV vitamins, injectables, and consumables — with community-reported pricing, vetted suppliers, and a network of owners who share what actually works.</p>
+      <div class="hero-cta reveal">
+        <a href="#guide" class="btn-gold">Explore the Sourcing Guide</a>
+        <a href="#directory" class="btn-ghost">Join the Directory →</a>
+      </div>
+      <div class="hero-search reveal">
+        <input id="hero-search" type="text" placeholder="Search suppliers, prices, topics…  (try “vitamin C” or “503B”)" readonly />
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><div class="num" data-target="8" data-suffix="">0</div><div class="lbl">Vetted suppliers</div></div>
+        <div class="stat reveal"><div class="num" data-target="6" data-suffix="">0</div><div class="lbl">Sourcing categories</div></div>
+        <div class="stat reveal"><div class="num" data-target="9" data-suffix="+">0</div><div class="lbl">Price benchmarks</div></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sourcing guide / categories -->
+    <section id="guide">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <span class="sec-tag">The Sourcing Guide</span>
+          <h2>Every category, demystified</h2>
+          <p>What you can source freely, what needs a prescriber, and where owners actually buy it. Tap a category to jump to its pricing.</p>
+        </div>
+        <div class="cat-grid" id="cat-grid"></div>
+      </div>
+    </section>
+
+    <!-- News -->
+    <section id="news">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag">The Feed</span>
+          <h2>Sourcing news & price moves</h2>
+          <p>Supplier changes, price swings, and compliance updates — the stuff buried in 29-comment Facebook threads, organized.</p>
+        </div>
+        <div class="news-grid" id="news-grid"></div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag">Price Benchmarks</span>
+          <h2>What others are paying</h2>
+          <p>Community-reported ranges so you know if your quote is fair. Filter by category — and submit your own numbers to sharpen the data.</p>
+        </div>
+        <div class="banner reveal">
+          <span>⚠️</span>
+          <div><b>How pricing works:</b> Suppliers don't publish public price feeds, so these are <b>community-reported ranges</b> — not quotes. Each row shows a "last reported" date and sample size once members submit data. The more owners contribute, the more accurate it gets. <a href="#get-local-gold" style="color:var(--gold-2)">Submit your numbers →</a></div>
+        </div>
+        <div class="filters reveal" id="price-filters"></div>
+        <div class="table-wrap reveal">
+          <table>
+            <thead><tr><th>Item</th><th>Reported range</th><th>Data freshness</th></tr></thead>
+            <tbody id="price-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suppliers -->
+    <section id="suppliers">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag">Supplier Directory</span>
+          <h2>Who sells what</h2>
+          <p>Informational listings — not endorsements. Always verify licensing, prescriber requirements, and your state's rules before ordering.</p>
+        </div>
+        <div class="sup-grid" id="sup-grid"></div>
+      </div>
+    </section>
+
+    <!-- Med spa networking directory -->
+    <section id="directory">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="sec-tag">Network</span>
+          <h2>Med spa directory</h2>
+          <p>Find owners near you, compare notes on suppliers, and get listed. The more spas join, the stronger everyone's buying power.</p>
+        </div>
+        <div class="dir-search reveal"><input id="dir-input" type="text" placeholder="Search by name, city, state, or focus…" /></div>
+        <div class="dir-grid" id="dir-grid"></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap">
+        <div class="sec-head center reveal">
+          <span class="sec-tag">FAQ</span>
+          <h2>Sourcing questions, answered</h2>
+          <p>The questions med spa owners ask most — built to rank, written to actually help.</p>
+        </div>
+        <div class="faq-list" id="faq-list"></div>
+      </div>
+    </section>
+
+    <!-- CTA → Get Local Gold -->
+    <section id="get-local-gold">
+      <div class="wrap">
+        <div class="cta reveal">
+          <h2>Tight on supply cost? Now fill your chairs.</h2>
+          <p>Once your costs are dialed in, the margin only shows up if clients walk in. <b>Get Local Gold</b> gets your med spa found on Google — more reviews, higher local ranking, more booked appointments.</p>
+          <form class="cta-form">
+            <input type="email" placeholder="Your work email" required />
+            <button type="submit" class="btn-gold">Get the free audit</button>
+          </form>
+          <p class="cta-note">Free Google Business Profile audit · No card required · Plus the full Sourcing Guide PDF</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col foot-about">
+          <a href="#" class="logo"><span class="logo-mark">S</span>Spa<span>Source</span></a>
+          <p>The independent sourcing hub for med spa owners. Compare suppliers, benchmark pricing, and network — then grow with Get Local Gold.</p>
+        </div>
+        <div class="foot-col">
+          <h4>Sourcing</h4>
+          <a href="#guide">Sourcing Guide</a><a href="#pricing">Price Benchmarks</a><a href="#suppliers">Supplier Directory</a><a href="#news">Feed</a>
+        </div>
+        <div class="foot-col">
+          <h4>Community</h4>
+          <a href="#directory">Med Spa Directory</a><a href="#directory">Get Listed</a><a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Grow</h4>
+          <a href="#get-local-gold">Get Local Gold</a><a href="#get-local-gold">Free Google Audit</a>
+        </div>
+      </div>
+      <p class="disclaimer">SpaSource provides informational, commercial sourcing information only. Listings are not endorsements. Prescription drugs and compounded sterile products require appropriate licensing, a prescriber/medical director, and compliance with state and federal law. Nothing here is medical, legal, or regulatory advice — consult your medical director and attorney before sourcing or administering any product. Pricing is community-reported and illustrative, not a quote.</p>
+      <div class="foot-bottom">
+        <span>© 2027 SpaSource. Built for med spa owners.</span>
+        <span>Powered by <a href="#get-local-gold" style="color:var(--gold-2);text-decoration:none">Get Local Gold</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Command palette -->
+  <div class="cmdk-overlay" id="cmdk-overlay">
+    <div class="cmdk">
+      <input id="cmdk-input" type="text" placeholder="Search suppliers, prices, topics, FAQ…" autocomplete="off" />
+      <div class="cmdk-results" id="cmdk-results"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
