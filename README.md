@@ -6,22 +6,25 @@ resource for med spa owners — and funnels them into **Get Local Gold**.
 ## What's here
 ```
 spasource/
-├── index.html        # The site (all sections)
-├── styles.css        # 2027-style design system (animations, glass, gradients)
-├── app.js            # Search/command palette, filters, directory, FAQ, reveals
-├── data/data.js      # ALL content — edit this to update the site (no build step)
-├── robots.txt        # SEO
-├── sitemap.xml       # SEO (update domain before deploy)
+├── public/             # ← the site (this is what Cloudflare serves)
+│   ├── index.html      # The site (all sections)
+│   ├── styles.css      # 2027-style design system (animations, glass, gradients)
+│   ├── app.js          # Search/command palette, filters, directory, FAQ, reveals
+│   ├── data/data.js    # ALL content — edit this to update the site (no build step)
+│   ├── _headers        # Cloudflare caching + security headers
+│   ├── robots.txt      # SEO
+│   └── sitemap.xml     # SEO (update domain before deploy)
+├── wrangler.jsonc      # Cloudflare config (serves ./public as static assets)
 └── README.md
 ```
 
 ## Run it locally
-Just open `index.html` in a browser — no build, no server needed.
-Or serve it (nicer for testing): `npx serve .` then visit the printed URL.
+Open `public/index.html` in a browser — no build, no server needed.
+Or serve it (nicer for testing): `npx serve public` then visit the printed URL.
 
 ## Edit content
-Everything renders from **`data/data.js`**. Update suppliers, pricing, news,
-FAQ, directory entries there — refresh the page, done.
+Everything renders from **`public/data/data.js`**. Update suppliers, pricing,
+news, FAQ, directory entries there — refresh the page, done.
 
 ## Features built in
 - **Command-palette search (⌘K / Ctrl+K)** across suppliers, prices, topics, FAQ, news
@@ -66,25 +69,21 @@ pricing is account-specific and quote-based. So "real-time" realistically means
 This crowdsourced angle is also your **moat and your lead magnet**: people submit
 prices to see prices, and every submission is a warm contact for Get Local Gold.
 
-## Deploy — Cloudflare Pages (free, global CDN)
-This is a pure static site, so Cloudflare Pages serves it directly — no build step.
+## Deploy — Cloudflare (free, global CDN)
+Static site served via Cloudflare Workers static assets. `wrangler.jsonc` points
+the deploy at `./public`, so only site files are uploaded (no `node_modules`).
 
 **Git-connected (auto-deploys on every push):**
-1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**
-2. Pick the `spasource` repo
-3. Build settings:
-   - **Framework preset:** None
-   - **Build command:** *(leave empty)*
-   - **Build output directory:** `/`
-4. Save & Deploy → you get a `*.pages.dev` URL. Add a custom domain anytime.
+The repo is already wired to a Cloudflare project. Each push to `main` triggers
+`npx wrangler deploy`, which reads `wrangler.jsonc` and serves `./public`.
+No build command, no framework preset needed — the config handles it.
 
-**Or via Wrangler CLI (direct upload):**
+**Or deploy manually from your machine:**
 ```
-npx wrangler pages deploy . --project-name=spasource
+npx wrangler deploy
 ```
-(`_headers` is read automatically by Cloudflare Pages for caching + security headers.)
 
-`package.json` is only for local preview (`npm start`); Cloudflare ignores it.
+`_headers` (inside `public/`) is applied automatically for caching + security.
 
 ## The funnel this serves
 Sourcing content (free value) → email capture → newsletter/community →
