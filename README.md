@@ -66,10 +66,25 @@ pricing is account-specific and quote-based. So "real-time" realistically means
 This crowdsourced angle is also your **moat and your lead magnet**: people submit
 prices to see prices, and every submission is a warm contact for Get Local Gold.
 
-## Deploy (free options)
-- **Netlify / Vercel:** drag the `spasource` folder onto their dashboard. Done.
-  (Both also give you free form handling — easiest way to wire the forms.)
-- **GitHub Pages / Cloudflare Pages:** push the folder, point the domain.
+## Deploy — Cloudflare Pages (free, global CDN)
+This is a pure static site, so Cloudflare Pages serves it directly — no build step.
+
+**Git-connected (auto-deploys on every push):**
+1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**
+2. Pick the `spasource` repo
+3. Build settings:
+   - **Framework preset:** None
+   - **Build command:** *(leave empty)*
+   - **Build output directory:** `/`
+4. Save & Deploy → you get a `*.pages.dev` URL. Add a custom domain anytime.
+
+**Or via Wrangler CLI (direct upload):**
+```
+npx wrangler pages deploy . --project-name=spasource
+```
+(`_headers` is read automatically by Cloudflare Pages for caching + security headers.)
+
+`package.json` is only for local preview (`npm start`); Cloudflare ignores it.
 
 ## The funnel this serves
 Sourcing content (free value) → email capture → newsletter/community →
